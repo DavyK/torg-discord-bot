@@ -62,7 +62,11 @@ client.on('message', msg => {
     }
 
     const total = dieRolls.reduce((acc, num) => acc+=num, 0);
-    let reply = `Bonus Number: **${rollToBonusNumber(total)}** (rolled ${total}`;
+    let gloryMessage = '';
+    if (total >= 60) {
+      gloryMessage = '**GLORY:** ';
+    }
+    let reply = `${gloryMessage}**${rollToBonusNumber(total)}** (rolled ${total}`;
     if(dieRolls.length > 1) {
       reply += ` [${dieRolls.join(' + ')}]`;
     }
