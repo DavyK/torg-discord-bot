@@ -1,4 +1,11 @@
 const Discord = require('discord.js');
+const express = require('express')
+const app = express()
+const port = 3000
+
+app.get('/', (req, res) => res.send('TORG Discord bot!'))
+
+app.listen(port, () => console.log(`Example app listening on port ${port}!`))
 
 const client = new Discord.Client();
 
