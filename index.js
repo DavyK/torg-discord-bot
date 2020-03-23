@@ -1,5 +1,4 @@
 const Discord = require('discord.js');
-const { prefix, token } = require('./config.json');
 
 const client = new Discord.Client();
 
@@ -65,4 +64,9 @@ client.on('message', msg => {
   }
 });
 
-client.login(token);
+const token = process.env.DISCORD_TORG_BOT_TOKEN;
+if (token === undefined) {
+ console.log('Could not find token');
+} else {
+  client.login(token);
+}
